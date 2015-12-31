@@ -114,6 +114,16 @@
 			treemenu01=tmptree;
 			menuarray[divid]= tmptree;
 		}
+
+      function pageScroll() {
+         if ( !scrolled )
+         {
+            scrolled = true;
+            window.scrollTo(0,top);
+            scrolldelay = setTimeout('pageScroll()', 200);
+         }
+      }
+
       window.onload = function(){
          var treemenuobj = document.getElementById('treemenu01');
          if (treemenuobj)
@@ -122,6 +132,13 @@
                document.getElementById('treemenu01').focus();
          }
       }
+</script>
+<script>
+    $(document).ready(function() {
+        $('.menu-link').bigSlide();
+         scrolled = false;
+         setTimeout('pageScroll();', 100);
+    });
 </script>
 <script type="text/javascript" src="../common/scripts/onlinecheck.js"></script>
 <!-- ************************************************ -->
